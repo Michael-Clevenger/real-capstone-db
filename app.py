@@ -33,12 +33,6 @@ class ImageSchema(ma.Schema):
 image_schema = ImageSchema()
 images_schema = ImageSchema(many=True)
 
-
-#test code
-@app.route("/")
-def home_view():
-    return"<h1> hey there</h1>"
-
 @app.route('/image', methods=["POST"])
 def add_image():
 
