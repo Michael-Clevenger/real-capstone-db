@@ -1,1 +1,1 @@
-web gunicorn capstonedbmain:app
+web: python app.py
