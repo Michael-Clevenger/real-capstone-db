@@ -11,7 +11,7 @@ import os
 # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 app = Flask(__name__)
-heroku = Heroku(app)
+# heroku = Heroku(app)
 
 # CORS(app, support_credentials=True)
 
