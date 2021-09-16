@@ -1,2 +1,1 @@
-web: pipenv shell
-web: python app.py
+web: gunicorn app:python app.py
