@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 # from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-from flask_heroku import Heroku
+# from flask_heroku import Heroku
 import os
 # import psycopg2
 
