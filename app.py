@@ -1,22 +1,12 @@
 from flask import Flask, request, jsonify
-# from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-# from flask_heroku import Heroku
+from flask_heroku import Heroku
 import os
-# import psycopg2
-
-# DATABASE_URL = os.environ['DATABASE_URL']
-
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 app = Flask(__name__)
-# heroku = Heroku(app)
+heroku = Heroku(app)
 
-# CORS(app, support_credentials=True)
-
-
-# cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite')
@@ -57,7 +47,6 @@ def add_image():
 
 
 @app.route("/images", methods=["GET"])
-# @cross_origin(supports_credentials=True)
 def get_images():
     all_images = Image.query.all()
     result = images_schema.dump(all_images)
@@ -65,7 +54,6 @@ def get_images():
 
 
 @app.route("/image/<id>", methods=["GET"])
-# @cross_origin(supports_credentials=True)
 def get_image(id):
     image = Image.query.get(id)
     return image_schema.jsonify(image)
