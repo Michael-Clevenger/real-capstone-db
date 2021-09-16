@@ -57,7 +57,7 @@ def add_image():
 
 
 @app.route("/images", methods=["GET"])
-@cross_origin(supports_credentials=True)
+# @cross_origin(supports_credentials=True)
 def get_images():
     all_images = Image.query.all()
     result = images_schema.dump(all_images)
@@ -65,7 +65,7 @@ def get_images():
 
 
 @app.route("/image/<id>", methods=["GET"])
-@cross_origin(supports_credentials=True)
+# @cross_origin(supports_credentials=True)
 def get_image(id):
     image = Image.query.get(id)
     return image_schema.jsonify(image)
