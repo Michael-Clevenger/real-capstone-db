@@ -1,22 +1,22 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
+# from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_heroku import Heroku
 import os
-import psycopg2
+# import psycopg2
 
-DATABASE_URL = os.environ['DATABASE_URL']
+# DATABASE_URL = os.environ['DATABASE_URL']
 
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 app = Flask(__name__)
 heroku = Heroku(app)
 
-CORS(app, support_credentials=True)
+# CORS(app, support_credentials=True)
 
 
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+# cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite')
